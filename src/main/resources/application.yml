@@ -1,0 +1,9 @@
+datasource:
+  mysql:
+    url: jdbc:mysql://192.168.0.105/stc-wherehouse
+    username: borge
+    password: Develop/2022
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    dialect: org.hibernate.dialect.MySQL8Dialect
+    showsql: true
