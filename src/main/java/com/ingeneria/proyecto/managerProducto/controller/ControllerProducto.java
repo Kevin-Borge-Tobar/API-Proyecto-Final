@@ -3,6 +3,7 @@ import com.ingeneria.proyecto.entities.Producto;
 import com.ingeneria.proyecto.managerProducto.service.ServiceProducto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -18,9 +19,10 @@ public class ControllerProducto {
     }
 
     @GetMapping("/lista")
-    public  List<Producto> listaProductos(){
+    public String listaProductos(Model model) {
+        model.addAttribute("titulo", "Lista de Productos a la venta");
 
-        return serviceProducto.listaProductos();
+        return "productos";
     }
 
     @GetMapping(value = "/{idProducto}")
