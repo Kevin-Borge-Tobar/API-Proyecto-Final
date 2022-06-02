@@ -9,7 +9,7 @@ datasource:
     showsql: true
 spring:
   mvc:
-    pathmatch:
+    path-match:
       matching-strategy: ant_path_matcher
   jpa:
     hibernate:
