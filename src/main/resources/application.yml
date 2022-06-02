@@ -1,9 +1,18 @@
 datasource:
   mysql:
-    url: jdbc:mysql://192.168.0.105/stc-wherehouse
+    url: jdbc:mysql://192.168.0.105:3306/mydb
     username: borge
     password: Develop/2022
     driverClassName: com.mysql.cj.jdbc.Driver
   jpa:
     dialect: org.hibernate.dialect.MySQL8Dialect
     showsql: true
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+
