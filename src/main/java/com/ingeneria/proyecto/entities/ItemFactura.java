@@ -18,11 +18,7 @@ public class ItemFactura {
     public int id_item;
     public  String cantidad;
 
-    //si no funciona eliminar
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_factura")
-    private  Factura factura;
+
 
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY)
