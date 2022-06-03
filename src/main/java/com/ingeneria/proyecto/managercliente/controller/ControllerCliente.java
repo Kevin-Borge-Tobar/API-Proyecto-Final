@@ -19,7 +19,7 @@ public class ControllerCliente {
         this.serviceCliente = serviceCliente;
     }
 
-    @GetMapping(value = "/lista")
+    @GetMapping()
     public List<Cliente>listadoClientes() {
         return serviceCliente.listaClientes();
     }
@@ -29,12 +29,12 @@ public class ControllerCliente {
         return serviceCliente.BuscarCLiente(idCliente);
     }
     
-    @PostMapping(value = "/crear")
+    @PostMapping()
     public ResponseEntity<Cliente> guardarCliente(@RequestBody Cliente cliente) {
         ResponseEntity<Cliente> ok = (ResponseEntity<Cliente>) ResponseEntity.ok(serviceCliente.CrearCliente(cliente));
         return ok;
     }
-    @PutMapping(value = "/actualizar/{idCliente}")
+    @PutMapping(value = "/{idCliente}")
     public ResponseEntity<Cliente> ActualizarCliente(@PathVariable Long idCliente, @RequestBody Cliente cliente) {
         Cliente clienteActual= serviceCliente.BuscarCLiente(idCliente);
         clienteActual.setNit(cliente.getNit());
@@ -45,7 +45,7 @@ public class ControllerCliente {
         ResponseEntity<Cliente> ok = (ResponseEntity<Cliente>) ResponseEntity.ok(serviceCliente.CrearCliente(clienteActual));
         return ok;
     }
-    @DeleteMapping(value = "/eliminar/{idCliente}")
+    @DeleteMapping(value = "/{idCliente}")
     public void EliminarCliente(@PathVariable Long idCliente){
         serviceCliente.EliminarCliente(idCliente);
     }
