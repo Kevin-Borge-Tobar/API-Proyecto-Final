@@ -1,0 +1,27 @@
+datasource:
+  mysql:
+    url: jdbc:mysql://us-cdbr-east-05.cleardb.net/heroku_6dac6b214a66e3f?reconnect=true
+    username: b8d74895805e9b
+    password: 2ee3004a
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    dialect: org.hibernate.dialect.MySQL8Dialect
+    showsql: true
+spring:
+  mvc:
+    path-match:
+      matching-strategy: ant_path_matcher
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+#CLEAR_DATABASE LINK
+#mysql://b8d74895805e9b:2ee3004a@us-cdbr-east-05.cleardb.net/heroku_6dac6b214a66e3f?reconnect=true
+
+#atributos
+#username = b8d74895805e9b
+#password = 2ee3004a
+# servidor = us-cdbr-east-05.cleardb.net //remplaza a localhost
+#database = heroku_6dac6b214a66e3f?reconnect=true
+
+
+
