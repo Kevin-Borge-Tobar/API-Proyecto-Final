@@ -7,6 +7,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+
+//  dependencia  de maven que Lombok project
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
