@@ -19,9 +19,10 @@ public class ControllerProducto {
     }
 
     @GetMapping("/lista")
-    public List<Producto>listaProductos() {
+    public String listaProductos(Model model) {
+        model.addAttribute("titulo", "Lista de Productos a la venta");
 
-        return serviceProducto.listaProductos();
+        return "productos";
     }
 
     @GetMapping(value = "/{idProducto}")
@@ -30,8 +31,9 @@ public class ControllerProducto {
     }
 
     @PostMapping(value = "/crear")
-    public Producto guardarProducto(@RequestBody Producto producto) {
-       return   serviceProducto.crearProducto(producto);
+    public ResponseEntity<Producto> guardarProducto(@RequestBody Producto producto) {
+        ResponseEntity<Producto> ok = (ResponseEntity<Producto>) ResponseEntity.ok(serviceProducto.crearProducto(producto));
+        return ok;
     }
     @PutMapping(value = "/actualizar/{idCliente}")
     public ResponseEntity<Producto> ActualizarCliente(@PathVariable Long idProducto, @RequestBody Producto producto) {

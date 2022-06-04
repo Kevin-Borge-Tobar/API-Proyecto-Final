@@ -15,15 +15,15 @@ public class ControllerFactura {
     public ControllerFactura( ServiceFactura serviceFactura) {
         this.serviceFactura = serviceFactura;
     }
-    @GetMapping("/")
+    @GetMapping()
     public List<Factura> listaFacturas() {
         return serviceFactura.ListaFacturas();
     }
-    @GetMapping("/ver/{idFactura}")
+    @GetMapping("/{idFactura}")
     public Factura buscarFactura(@PathVariable Long idFactura) {
          return serviceFactura.buscarFactura(idFactura);
     }
-    @PostMapping("/crear")
+    @PostMapping()
     @ResponseStatus(value = HttpStatus.CREATED)
     public Factura crearFactura(@RequestBody Factura factura){
        return serviceFactura.crearFactura(factura);
