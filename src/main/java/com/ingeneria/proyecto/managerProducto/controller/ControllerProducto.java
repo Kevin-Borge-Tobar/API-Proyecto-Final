@@ -18,11 +18,9 @@ public class ControllerProducto {
         this.serviceProducto = serviceProducto;
     }
 
-    @GetMapping("/lista")
-    public String listaProductos(Model model) {
-        model.addAttribute("titulo", "Lista de Productos a la venta");
-
-        return "productos";
+    @GetMapping()
+    public List<Producto> listaProductos() {
+        return serviceProducto.listaProductos();
     }
 
     @GetMapping(value = "/{idProducto}")
@@ -30,12 +28,12 @@ public class ControllerProducto {
         return serviceProducto.BuscarProducto(idProducto);
     }
 
-    @PostMapping(value = "/crear")
+    @PostMapping()
     public ResponseEntity<Producto> guardarProducto(@RequestBody Producto producto) {
         ResponseEntity<Producto> ok = (ResponseEntity<Producto>) ResponseEntity.ok(serviceProducto.crearProducto(producto));
         return ok;
     }
-    @PutMapping(value = "/actualizar/{idCliente}")
+    @PutMapping(value = "/{idCliente}")
     public ResponseEntity<Producto> ActualizarCliente(@PathVariable Long idProducto, @RequestBody Producto producto) {
         Producto productoActual= serviceProducto.BuscarProducto(idProducto);
 
@@ -46,7 +44,7 @@ public class ControllerProducto {
         ResponseEntity<Producto> ok = (ResponseEntity<Producto>) ResponseEntity.ok(serviceProducto.crearProducto(productoActual));
         return ok;
     }
-    @DeleteMapping(value = "/eliminar/{idCliente}")
+    @DeleteMapping(value = "/{idCliente}")
     public void EliminarCliente(@PathVariable Long idProducto){
         serviceProducto.EliminarProducto(idProducto);
     }
